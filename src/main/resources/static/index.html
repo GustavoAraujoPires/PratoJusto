@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prato Justo - Conectando Solidariedade</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="search-styles.css">
+    <link rel="stylesheet" href="BuscarDoacao.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -31,9 +31,6 @@
                 <li><a href="#impacto" class="nav-link">Impacto</a></li>
                 <li><a href="#contato" class="nav-link">Contato</a></li>
                 <li class="nav-login"><a href="login.html" class="nav-link">Entrar</a></li>
-				<li><a href="test-doacoes.html" class="nav-link">Testar Doações</a></li>
-				<li><a href="test-chat.html" class="nav-link">Testar Chat</a></li>
-
             </ul>
 
             <div class="header-actions">
@@ -74,16 +71,54 @@
                 é um passo contra a fome e desperdício.
             </p>
 
-            <div class="hero-buttons">
-                <button class="btn btn-primary">
-                    <span class="btn-icon">📦</span>
-                    Quero Doar
-                </button>
-                <button class="btn btn-secondary">
-                    <span class="btn-icon">🤲</span>
-                    Preciso de Ajuda
-                </button>
+                </style>
+            </head>
+            <!-- Modal principal -->
+            <div id="meuModal" class="modal">
+                <div class="modal-content">
+                     <div class="hero-buttons">
+                        <button class="btn btn-primary">
+                            <span class="btn-icon">📦</span>
+                            Quero Doar
+                        </button>
+
+                        <!-- Botão que abre o chatbot -->
+                        <button class="btn btn-secondary" onclick="abrirChat()">
+                            <span class="btn-icon">🤲</span>
+                            Preciso de Ajuda
+                        </button>
+                    </div>
+
+                    <!-- Aba do chat oculta por padrão -->
+                    <div id="chatBotDiv" style="display:none; margin-top: 20px;">
+                        <iframe src="https://bots.easy-peasy.ai/bot/8cf235fd-b937-4407-9c03-e95ad2e5a459"
+                                width="100%"
+                                height="500"
+                                style="border: 1px solid #ccc; border-radius: 8px;">
+                        </iframe>
+                    </div>
+                </div>
             </div>
+
+            </style>
+
+            <!-- Script para controle -->
+            <script>
+                function fecharModal() {
+                    document.getElementById('meuModal').style.display = 'none';
+                }
+
+                function abrirChat() {
+                    const chatDiv = document.getElementById('chatBotDiv');
+                    chatDiv.style.display = chatDiv.style.display === 'none' ? 'block' : 'none';
+                }
+            </script>
+
+
+
+
+
+
 
             <div class="donation-search-card">
                 <div class="search-header">
@@ -302,30 +337,6 @@
     </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta">
-    <div class="cta-background">
-        <div class="gradient-overlay"></div>
-    </div>
-
-    <div class="container">
-        <div class="cta-content">
-            <h2>Pronto para Fazer a Diferença?</h2>
-            <p>Junte-se a milhares de pessoas que estão transformando vidas através da doação de alimentos</p>
-
-            <div class="cta-buttons">
-                <button class="btn btn-large btn-primary">
-                    <span class="btn-icon">🎁</span>
-                    Começar a Doar
-                </button>
-                <button class="btn btn-large btn-outline">
-                    <span class="btn-icon">📞</span>
-                    Falar com Equipe
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Footer -->
 <footer class="footer">
@@ -348,7 +359,7 @@
             <div class="footer-section">
                 <h4>Links Rápidos</h4>
                 <ul>
-                    <li><a href="#home">Início</a></li>
+                    <li><a href="./index.html">Início</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#como-doar">Como Doar</a></li>
                     <li><a href="#impacto">Nosso Impacto</a></li>
@@ -388,5 +399,13 @@
 
 <script src="headerUser.js"></script>
 <script src="index.js"></script>
+
+<script
+        src="https://bots.easy-peasy.ai/chat.min.js"
+        data-chat-url="https://bots.easy-peasy.ai/bot/8cf235fd-b937-4407-9c03-e95ad2e5a459"
+        data-btn-position="bottom-right"
+        data-widget-btn-color="#6366f1"
+        defer>
+</script>
 </body>
 </html>
